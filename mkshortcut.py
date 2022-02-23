@@ -1,7 +1,8 @@
 #%% 
 # initialize
-import comtypes.client
 import os
+
+import comtypes.client
 
 SAVE_DIR_PARENT = r"C:\Users\aaa\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"
 SAVE_DIR = os.path.join(SAVE_DIR_PARENT, "FreeSofts")
@@ -15,7 +16,7 @@ else :
 def mkshortcut(target_file):
 	basename = os.path.basename(target_file)
 	filename = os.path.splitext(basename)[0]
-	save_path=os.path.join(SAVE_DIR_PARENT, filename+ ".lnk")
+	save_path=os.path.join(SAVE_DIR, filename+ ".lnk")
 	#WSHを生成
 	wsh=comtypes.client.CreateObject("wScript.Shell",dynamic=True)
 	#ショートカットの作成先を指定して、ショートカットファイルを開く。作成先のファイルが存在しない場合は、自動作成される。
